@@ -3,53 +3,51 @@
 #include <fstream>
 #include <string>
 #include <chrono>
+#include <stdexcept> 
+#include <sstream> 
 
 using namespace std;
 
-float calculateScalarProduct(vector<float> v1, vector<float> v2)
+static class VectorHandler
 {
-    if (v1.size() != v2.size())
-    {
-        throw exception("vectors sizes are diferent");
-    }
-
-    float res = 0.0f;
-
-    chrono::high_resolution_clock::time_point startTime, endTime;
-    
-    startTime = chrono::high_resolution_clock::now();
-    for (size_t i = 0; i < v1.size(); i++)
-    {
-        res += v1[i] * v2[i];
-    }
-    endTime = chrono::high_resolution_clock::now();
-    chrono::nanoseconds time = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
-    cout << "Calculation time: " << time.count() <<"ns" << endl;
-
-    return res;
-}
-
-class FileReader {
-private:
-    string filename;
 public:
-    FileReader(string filename) {
-        this->filename = filename;
+    static float calculateScalarProduct(vector<float> v1, vector<float> v2)
+    {
+        if (v1.size() != v2.size())
+        {
+            throw runtime_error("Vectors sizes are different");
+        }
+
+        float res = 0.0f;
+
+        for (size_t i = 0; i < v1.size(); i++)
+        {
+            res += v1[i] * v2[i];
+        }
+
+        return res;
     }
-    vector<float> getVectorFromFile() {
-        ifstream in(this->filename);
-        vector<float> v;
+};
+
+static class FileReader
+{
+public:
+    template <typename T>
+    static vector<T> readToVector(string fileName) {
+        ifstream in(fileName);
+        vector<T> v;
         string line;
+
         if (in.is_open()) {
-            try {
-                while (getline(in, line)) {
-                    v.push_back(stof(line));
+            while (getline(in, line)) {
+                stringstream ss(line);
+                T value;
+                if (ss >> value) {
+                    v.push_back(value);
                 }
-            }
-            catch (...) {
-                cout << "File has invalid line" << endl;
-                in.close();
-                return {};
+                else {
+                    throw runtime_error("Invalid data in file: " + line);
+                }
             }
             in.close();
         }
@@ -59,20 +57,24 @@ public:
 
 int main()
 {
-    try
-    {
-        FileReader file1 = FileReader("v1.txt");
-        FileReader file2 = FileReader("v2.txt");
-        vector<float> v1 = file1.getVectorFromFile();
-        vector<float> v2 = file2.getVectorFromFile();
+    try {
+        vector<float> v1 = FileReader::readToVector<float>("v1.txt");
+        vector<float> v2 = FileReader::readToVector<float>("v2.txt");
+        
 
-        float res = calculateScalarProduct(v1, v2);
+        chrono::high_resolution_clock::time_point startTime, endTime;
 
-        cout << "Result: " << res;
+        startTime = chrono::high_resolution_clock::now();
+        float res = VectorHandler::calculateScalarProduct(v1, v2);
+        endTime = chrono::high_resolution_clock::now();
+
+        chrono::nanoseconds time = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
+        cout << "Calculation time: " << time.count() << "ns" << endl;
+
+        cout << "Result: " << res << endl;
     }
-    catch (const exception& e)
-    {
-        cout << e.what();
+    catch (const std::exception& e) {
+        cerr << "Error: " << e.what() << endl;
     }
+    return 0;
 }
-
