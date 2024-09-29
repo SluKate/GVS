@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab1_CUDA", "Lab1_CUDA\Lab1_CUDA.vcxproj", "{0D28C4E0-E01B-47E1-86AA-AA5509B2DA05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{1F0E63CD-B772-4600-8DD4-75F73509AB20}"
+	ProjectSection(SolutionItems) = preProject
+		Lab1_CUDA\v1.txt = Lab1_CUDA\v1.txt
+		Lab1_CUDA\v2.txt = Lab1_CUDA\v2.txt
+		Lab1_CUDA\Тест1.txt = Lab1_CUDA\Тест1.txt
+		Lab1_CUDA\Тест2.txt = Lab1_CUDA\Тест2.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D28C4E0-E01B-47E1-86AA-AA5509B2DA05}.Debug|x64.ActiveCfg = Debug|x64
+		{0D28C4E0-E01B-47E1-86AA-AA5509B2DA05}.Debug|x64.Build.0 = Debug|x64
+		{0D28C4E0-E01B-47E1-86AA-AA5509B2DA05}.Release|x64.ActiveCfg = Release|x64
+		{0D28C4E0-E01B-47E1-86AA-AA5509B2DA05}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {947E3EEE-7696-4664-A2DE-9A907C5C8A44}
+	EndGlobalSection
+EndGlobal
