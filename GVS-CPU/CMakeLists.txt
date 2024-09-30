@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24...3.30)
-project(cuda-sample1-lib VERSION 1.0 LANGUAGES CUDA)
+project(GVS-CPU VERSION 1.0 LANGUAGES CUDA)
 
 add_library(cuda-sample1-lib STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src/dotprod.cu
