@@ -10,8 +10,8 @@ target_include_directories(cuda-sample1-lib PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-set_target_properties(GVS-CPU PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
-set_target_properties(GVS-CPU PROPERTIES CUDA_ARCHITECTURES "native")
+set_target_properties(GVS-CPU/GVS-CPU PROPERTIES CUDA_SEPARABLE_COMPILATION ON)
+set_target_properties(GVS-CPU/GVS-CPU PROPERTIES CUDA_ARCHITECTURES "native")
 
 if(CMAKE_BUILD_TYPE MATCHES "DebugDevice")
     message(STATUS "Device debugging mode is enabled")
