@@ -15,8 +15,8 @@ set_target_properties(GVS-CPU/GVS-CPU PROPERTIES CUDA_ARCHITECTURES "native")
 
 if(CMAKE_BUILD_TYPE MATCHES "DebugDevice")
     message(STATUS "Device debugging mode is enabled")
-    target_compile_definitions(cuda-sample1-lib PRIVATE DEBUG=1)
-    target_compile_options(cuda-sample1-lib
+    target_compile_definitions(GVS-CPU/GVS-CPU PRIVATE DEBUG=1)
+    target_compile_options(GVS-CPU/GVS-CPU
         PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:-g -G>
     )
 endif()
@@ -24,13 +24,13 @@ endif()
 if(CMAKE_BUILD_TYPE MATCHES "DebugHost")
     message(STATUS "Host debugging mode is enabled")
     target_compile_definitions(cuda-sample1-lib PRIVATE DEBUG=1)
-    target_compile_options(cuda-sample1-lib PUBLIC
+    target_compile_options(GVS-CPU/GVS-CPU PUBLIC
         $<$<COMPILE_LANGUAGE:CUDA>:-g -Xcompiler -fsanitize=address -fsanitize=undefined>
     )
-    target_link_libraries(cuda-sample1-lib PUBLIC
+    target_link_libraries(GVS-CPU/GVS-CPU PUBLIC
         asan
     )
-    target_link_options(cuda-sample1-lib
+    target_link_options(GVS-CPU/GVS-CPU
         BEFORE PUBLIC -fsanitize=undefined
         PUBLIC -fsanitize=address
     )
