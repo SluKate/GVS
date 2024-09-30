@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -O3")
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -Wall -O3")
 set(CMAKE_CUDA_USE_RESPONSE_FILE_FOR_INCLUDES OFF)
 
-add_subdirectory(cuda-sample1-lib)
+add_subdirectory(GVS)
 
 if("${TESTING}" STREQUAL 1)
     message(STATUS "Testing is enabled")
