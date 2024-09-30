@@ -15,8 +15,8 @@ set_target_properties(GVS-CPU PROPERTIES CUDA_ARCHITECTURES "native")
 
 if(CMAKE_BUILD_TYPE MATCHES "DebugDevice")
     message(STATUS "Device debugging mode is enabled")
-    target_compile_definitions(GVS-CPU/GVS-CPU PRIVATE DEBUG=1)
-    target_compile_options(GVS-CPU/GVS-CPU
+    target_compile_definitions(GVS-CPU PRIVATE DEBUG=1)
+    target_compile_options(GVS-CPU
         PUBLIC $<$<COMPILE_LANGUAGE:CUDA>:-g -G>
     )
 endif()
