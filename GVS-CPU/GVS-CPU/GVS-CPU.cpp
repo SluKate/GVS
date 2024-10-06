@@ -71,7 +71,7 @@ int main()
         chrono::nanoseconds time = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
         cout << "Время выполнения: " << time.count() << " нс" << endl;
 
-        cout << "Результат: " << res << endl;
+        cout << "Скалярное произведение: " << res << endl;
     }
     catch (const std::exception& e) {
         cerr << "Error: " << e.what() << endl;
