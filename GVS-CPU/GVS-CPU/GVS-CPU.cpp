@@ -69,7 +69,7 @@ int main()
         endTime = chrono::high_resolution_clock::now();
 
         chrono::nanoseconds time = chrono::duration_cast<chrono::nanoseconds>(endTime - startTime);
-        cout << "Calculation time: " << time.count() << "ns" << endl;
+        cout << "Время выполнения: " << time.count() << "ns" << endl;
 
         cout << "Result: " << res << endl;
     }
