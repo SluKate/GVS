@@ -30,5 +30,5 @@ target_link_libraries(GVS-CPU PRIVATE
 )
 
 enable_testing()
-gtest_discover_tests(cuda-sample1-test)
+gtest_discover_tests(GVS-CPU-test)
 
