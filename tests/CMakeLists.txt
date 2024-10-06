@@ -23,7 +23,7 @@ target_include_directories(GVS-CPU PRIVATE
 
 find_package(CUDAToolkit)
 
-target_link_libraries(cuda-sample1-test PRIVATE
+target_link_libraries(GVS-CPU PRIVATE
     GVS-CPU
     GTest::gtest_main
     CUDA::curand
