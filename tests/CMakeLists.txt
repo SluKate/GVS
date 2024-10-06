@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24...3.30)
-project(GVS-CPU VERSION 1.0 LANGUAGES CXX CUDA)
+project(GVS-CPU-test VERSION 1.0 LANGUAGES CXX CUDA)
 
 include(GoogleTest)
 include(FetchContent)
