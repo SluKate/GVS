@@ -31,7 +31,7 @@ target_include_directories(dotbench PRIVATE
 
 find_package(CUDAToolkit)
 target_link_libraries(dotbench PRIVATE
-    cuda-sample1-lib
+    GVS-CPU
     CUDA::curand
     argparse
 )
