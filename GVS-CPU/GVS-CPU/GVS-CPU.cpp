@@ -8,7 +8,7 @@
 
 using namespace std;
 
-static class VectorHandler
+class VectorHandler
 {
 public:
     static float calculateScalarProduct(vector<float> v1, vector<float> v2)
@@ -29,7 +29,7 @@ public:
     }
 };
 
-static class FileReader
+class FileReader
 {
 public:
     template <typename T>
