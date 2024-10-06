@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24...3.30)
-project(cuda-sample1-test VERSION 1.0 LANGUAGES CXX CUDA)
+project(GVS-CPU VERSION 1.0 LANGUAGES CXX CUDA)
 
 include(GoogleTest)
 include(FetchContent)
@@ -12,19 +12,19 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(cuda-sample1-test
+add_executable(GVS-CPU
     ${CMAKE_CURRENT_SOURCE_DIR}/src/tests.cu
 )
 
-target_include_directories(cuda-sample1-test PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/../cuda-sample1-lib/include
+target_include_directories(GVS-CPU PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/../GVS-CPU/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 find_package(CUDAToolkit)
 
 target_link_libraries(cuda-sample1-test PRIVATE
-    cuda-sample1-lib
+    GVS-CPU
     GTest::gtest_main
     CUDA::curand
 )
