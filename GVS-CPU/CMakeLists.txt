@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.24...3.30)
 project(GVS-CPU VERSION 1.0 LANGUAGES CUDA)
 
 add_library(GVS-CPU STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/GVS-CPU/dotprod.cu
-    ${CMAKE_CURRENT_SOURCE_DIR}/GVS-CPU/dynblock.cu
+    ${CMAKE_CURRENT_SOURCE_DIR}/GVS-CPU/include/dotprod.cu
+    ${CMAKE_CURRENT_SOURCE_DIR}/GVS-CPU/include/dynblock.cu
 )
 
 target_include_directories(GVS-CPU PRIVATE
