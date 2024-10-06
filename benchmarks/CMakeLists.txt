@@ -23,7 +23,7 @@ add_executable(dotbench
 )
 
 target_include_directories(dotbench PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/../cuda-sample1-lib/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../GVS-CPU/include
     ${CMAKE_CURRENT_SOURCE_DIR}/../tests/include
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/../build/_deps/indicators-src/include
